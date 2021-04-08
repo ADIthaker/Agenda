@@ -4,6 +4,8 @@ import "tui-calendar/dist/tui-calendar.css";
 import "tui-date-picker/dist/tui-date-picker.css";
 import "tui-time-picker/dist/tui-time-picker.css";
 import "./styles.css";
+import {Button} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Req from "./config/axios";
 import axios from "axios";
 
@@ -37,6 +39,12 @@ const calendars= [
 function Calendar({view, workweek}) {
   const cal = useRef(null);
   const [schedules,setSchedules] = useState([]);
+  const handleNext = ()=>{
+    cal.current.calendarInst.next()
+  }
+  const handlePrev = ()=>{
+    cal.current.calendarInst.prev()
+  }
   const onClickSchedule = useCallback((e) => {
     const { calendarId, id } = e.schedule;
     const el = cal.current.calendarInst.getElement(id, calendarId);
@@ -148,6 +156,11 @@ function Calendar({view, workweek}) {
   },[]);
   return (
     <div className="App">
+      <div style={{marginBottom:"2rem"}}>
+      <Button onClick={()=>handlePrev()} style={{marginLeft:"1rem"}}>Previous</Button>
+      <Button onClick={()=>handleNext()} style={{marginLeft:"2rem"}}>Next</Button>
+      </div>
+      
       <TUICalendar
        ref={cal}
        height="200%"
