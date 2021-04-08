@@ -6,7 +6,6 @@ import "tui-time-picker/dist/tui-time-picker.css";
 import "./styles.css";
 import Req from "./config/axios";
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:5000";
 
 const calendars= [
   {
