@@ -10,6 +10,7 @@ dbConnection.db();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({origin:'http://localhost:3000'}));
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(scheduleRoutes);
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/frontend/build/index.html'));
