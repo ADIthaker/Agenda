@@ -3,6 +3,7 @@ const app = express();
 const dbConnection = require('./config/db');
 const scheduleRoutes = require("./routes");
 const cors = require('cors');
+const path = require("path");
 require('dotenv').config();
 
 dbConnection.db();
