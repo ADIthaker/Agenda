@@ -9,7 +9,7 @@ require('dotenv').config();
 dbConnection.db();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors({origin:'http://localhost:3000'}));
+app.use(cors({origin:'https://secret-earth-78161.herokuapp.com/'}));
 app.use(express.static(path.join(__dirname, 'frontend/build')));
 app.use(scheduleRoutes);
 app.get('*', (req, res) => {
